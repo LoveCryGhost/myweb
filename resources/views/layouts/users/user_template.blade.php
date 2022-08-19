@@ -23,7 +23,6 @@
             <div class="content-wrapper">
                 <div class="content-inner">
                     @yield("user-content")
-
                     @include('layouts.users.user_footer')
                 </div>
             </div>

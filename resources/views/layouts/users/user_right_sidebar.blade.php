@@ -1,4 +1,4 @@
-<div class="sidebar sidebar-light sidebar-right sidebar-expand-xl">
+<div class="sidebar sidebar-light sidebar-right sidebar-expand-xl sidebar-collapsed">
 
     <!-- Expand button -->
     <button type="button" class="btn btn-sidebar-expand sidebar-control sidebar-right-toggle">
