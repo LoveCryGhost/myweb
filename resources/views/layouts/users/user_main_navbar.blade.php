@@ -293,7 +293,7 @@
                     <span class="badge badge-mark border-pink bg-pink"></span>
                 </a>
             </li>
-
+            @include('layouts.common.languages')
             <li class="nav-item nav-item-dropdown-xl dropdown dropdown-user h-100">
                 <a href="#" class="navbar-nav-link navbar-nav-link-toggler d-flex align-items-center h-100 dropdown-toggle" data-toggle="dropdown">
                     <img src="{{asset('template/limitless/global_assets/images/placeholders/placeholder.jpg')}}" class="rounded-circle mr-xl-2" height="38" alt="">

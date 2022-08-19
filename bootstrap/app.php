@@ -52,4 +52,8 @@ $app->singleton(
 |
 */
 
+$app->singleton('router', function ($app) {
+    return new \App\Modules\CRUD\Router\Router($app['events'], $app);
+});
+
 return $app;

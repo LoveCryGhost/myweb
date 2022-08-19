@@ -35,6 +35,9 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            //新增
+            $this->map();
         });
     }
 
@@ -48,5 +51,50 @@ class RouteServiceProvider extends ServiceProvider
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
+    }
+
+    //
+    public function map()
+    {
+        $this->mapAdminRoutes();
+        $this->mapMemberRoutes();
+        $this->mapUserRoutes();
+        $this->mapTestRoutes();
+    }
+
+    protected function mapAdminRoutes()
+    {
+        Route::prefix('admin')
+            ->name('admin.')
+            ->middleware(['middleware' => 'web'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/admin.php'));
+    }
+
+
+    protected function mapMemberRoutes()
+    {
+        Route::prefix('member')
+            ->name('member.')
+            ->middleware(['middleware' => 'web'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/member.php'));
+    }
+
+    protected function mapUserRoutes()
+    {
+        Route::prefix('/')
+            ->middleware(['middleware' => 'web'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/user.php'));
+    }
+
+    protected function mapTestRoutes()
+    {
+        Route::prefix('test')
+            ->name('test.')
+            ->middleware(['middleware' => 'web'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/test.php'));
     }
 }
