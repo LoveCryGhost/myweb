@@ -60,6 +60,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapMemberRoutes();
         $this->mapUserRoutes();
         $this->mapTestRoutes();
+        $this->mapAuthRoutes();
     }
 
     protected function mapAdminRoutes()
@@ -84,6 +85,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapUserRoutes()
     {
         Route::prefix('/')
+            ->name('user.')
             ->middleware(['middleware' => 'web'])
             ->namespace($this->namespace)
             ->group(base_path('routes/user.php'));
@@ -96,5 +98,14 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware(['middleware' => 'web'])
             ->namespace($this->namespace)
             ->group(base_path('routes/test.php'));
+    }
+
+    protected function mapAuthRoutes()
+    {
+        Route::prefix('/')
+            ->name('auth.')
+            ->middleware(['middleware' => 'web'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/auth.php'));
     }
 }

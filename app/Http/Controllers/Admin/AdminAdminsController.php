@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Admin\Admin;
+use App\Models\Admin\Member;
 use App\Modules\CRUD;
 use App\Modules\CRUD\Router\Textbox;
 use App\Modules\CRUD\Service\CRUDService;
@@ -57,7 +57,7 @@ class AdminAdminsController extends AdminCoreController
             ->actionButtons(['edit', 'delete', 'create', 'print', 'show']);;
 
 
-        $query = new Admin();
+        $query = new Member();
         $query = $this->queryIndexSearch($query, $this);
 
         $pages=request()->input('indexList.pages',3);
@@ -126,7 +126,7 @@ class AdminAdminsController extends AdminCoreController
 
         $form_serializeArray_data = request()->input("form_serializeArray_data");
         $tableTrData = $this->indexListAjaxDataHandler();
-        $this->rows = Admin::find($tableTrData['tr_selected']);
+        $this->rows = Member::find($tableTrData['tr_selected']);
 
         // indexList
         $this->crudService->modalMultiEdit()
@@ -167,7 +167,7 @@ class AdminAdminsController extends AdminCoreController
 
         //儲存Data
         foreach ($rows as $id => $row){
-            $admin = Admin::find($id);
+            $admin = Member::find($id);
             foreach ($row as $name => $value){
                 $admin->$name = $value;
             }
@@ -176,7 +176,7 @@ class AdminAdminsController extends AdminCoreController
 
         $this->index();
         foreach ($rows as $id => $row) {
-            $newRow[$id]= Admin::find($id);
+            $newRow[$id]= Member::find($id);
             $view[$id] = view('admin.admin.masterTr',['_this'=>$this, 'tr_type' => 'tbody_tr', 'row'=> $newRow[$id] ])->render();
         }
 
@@ -245,7 +245,7 @@ class AdminAdminsController extends AdminCoreController
 
         //儲存Data
         foreach ($rows as $id => $row){
-            $admin = Admin::find($id);
+            $admin = Member::find($id);
             foreach ($row as $name => $value){
                 $admin->$name = $value;
             }
@@ -254,7 +254,7 @@ class AdminAdminsController extends AdminCoreController
 
         $this->index();
         foreach ($rows as $id => $row) {
-            $newRow[$id]= Admin::find($id);
+            $newRow[$id]= Member::find($id);
             $view[$id] = view('admin.admin.masterTr',['_this'=>$this, 'tr_type' => 'tbody_tr', 'row'=> $newRow[$id] ])->render();
         }
 

@@ -8,3 +8,6 @@
     </head>
     @yield('app-content')
 </html>
+
+<x-notification></x-notification>
+<x-multi-auth-switcher></x-multi-auth-switcher>

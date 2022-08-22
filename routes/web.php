@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 
+
+
+
+
 Route::get('languages/{locale}', function (Request $request, $locale){
 
     if(!$request->input('locale')){
