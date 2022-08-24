@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -8,6 +9,5 @@
     </head>
     @yield('app-content')
 </html>
-
 <x-notification></x-notification>
-<x-multi-auth-switcher></x-multi-auth-switcher>
+

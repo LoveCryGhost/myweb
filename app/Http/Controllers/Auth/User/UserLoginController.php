@@ -12,6 +12,15 @@ class UserLoginController extends UserCoreController
 {
     //protected $redirectTo = RouteServiceProvider::HOME;
 
+    public function __construct()
+    {
+        //限流 10 分钟十次
+        $this->middleware('throttle:10,10', [
+            'only' => ['login']
+        ]);
+        $this->middleware('guest')->except('logout');
+    }
+
     public function showLoginForm(){
         return view('layouts.auth.user.show_login_form');
     }

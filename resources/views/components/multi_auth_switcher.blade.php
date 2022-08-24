@@ -1,15 +1,19 @@
-    <a href="{{route('auth.admin.login')}}" class="navbar-nav-link navbar-nav-link-toggler pr-0">
-        @if(Auth::guard("admin")->check())
-            <span class="bg-success p-1 border-2 "> A </span>
-        @else
-            <span class="bg-danger p-1 border-2 "> A </span>
-        @endif
+@if(Auth::guard("admin")->check())
+    <a href="{{route('admin.dashboard.index')}}">
+        <span class="bg-success p-1 border-2 "> A </span>
     </a>
+@else
+    <a href="{{route('auth.admin.login')}}">
+        <span class="bg-danger p-1 border-2 "> A </span>
+    </a>
+@endif
 
-    <a href="{{route('auth.user.login')}}" class="navbar-nav-link navbar-nav-link-toggler  pr-0">
-        @if(Auth::guard("web")->check())
-            <span class="bg-success p-1 border-2 "> U </span>
-        @else
-            <span class="bg-danger p-1 border-2 "> U </span>
-        @endif
+@if(Auth::guard("web")->check())
+    <a href="{{route('user.dashboard.index')}}">
+        <span class="bg-success p-1 border-2 "> U </span>
     </a>
+@else
+    <a href="{{route('auth.user.login')}}" >
+        <span class="bg-danger p-1 border-2 "> U </span>
+    </a>
+@endif

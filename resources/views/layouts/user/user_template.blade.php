@@ -6,28 +6,28 @@
         @yield('user-title')
     @endsection
 
-    @include('layouts.users.css')
+    @include('layouts.user.css')
 
-    @include('layouts.users.js')
+    @include('layouts.user.js')
 </head>
 
 @section("app-content")
     <body>
-        @include('layouts.users.user_main_navbar')
+        @include('layouts.user.user_main_navbar')
 
         <div class="page-content">
-            @include('layouts.users.user_main_sidebar')
-            @include('layouts.users.user_secondary_sidebar')
+            @include('layouts.user.user_main_sidebar')
+            @include('layouts.user.user_secondary_sidebar')
             <div class="content-wrapper">
                 <div class="content-inner">
                     @yield("user-content")
                 </div>
-                @include('layouts.users.user_footer')
+                @include('layouts.user.user_footer')
             </div>
-            @include('layouts.users.user_right_sidebar')
+            @include('layouts.user.user_right_sidebar')
         </div>
 
-        @include('layouts.users.user_notification')
+        @include('layouts.user.user_notification')
     </body>
 @endsection
 

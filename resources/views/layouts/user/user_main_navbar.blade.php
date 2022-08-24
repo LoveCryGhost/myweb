@@ -284,7 +284,6 @@
             </li>
         </ul>
     </div>
-
     <div class="d-flex flex-xl-1 justify-content-xl-end order-0 order-xl-1 pr-3">
         <ul class="navbar-nav navbar-nav-underline flex-row">
             <li class="nav-item">
@@ -315,5 +314,8 @@
                 </div>
             </li>
         </ul>
+        <x-multi-auth-switcher></x-multi-auth-switcher>
     </div>
+
+
 </div>

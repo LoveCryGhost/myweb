@@ -10,14 +10,25 @@ use App\Providers\RouteServiceProvider;
 
 class AdminLoginController extends UserCoreController
 {
+
     //protected $redirectTo = RouteServiceProvider::HOME;
 
+    public function __construct()
+    {
+        //限流 10 分钟十次
+        $this->middleware('throttle:10,10', [
+            'only' => ['login']
+        ]);
+
+        $this->middleware(["guest:admin"])->except('logout');
+    }
     public function showLoginForm(){
         return view('layouts.auth.admin.show_login_form');
     }
 
     public function login(Request $request)
     {
+
         //validate the form data
         $this->validate($request,[
             "email" => "required|email",
