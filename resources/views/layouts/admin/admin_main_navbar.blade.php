@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-xl navbar-light navbar-static px-0">
     <div class="d-flex flex-1 pl-3">
         <div class="navbar-brand wmin-0 mr-1">
-            <a href="{{route('user.dashboard.index')}}" class="d-inline-block">
+            <a href="{{route('user.homepage')}}" class="d-inline-block">
                 <img src="{{asset('template/limitless/global_assets/images/logo_dark.png')}}" class="d-none d-sm-block" alt="">
                 <img src="{{asset('template/limitless/global_assets/images/logo_icon_dark.png')}}" class="d-sm-none" alt="">
             </a>

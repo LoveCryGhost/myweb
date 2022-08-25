@@ -31,3 +31,8 @@
 <script src="{{asset('template/limitless/global_assets/js/demo_charts/pages/dashboard_6/light/line_label_marks.js')}}"></script>
 <!-- /theme JS files -->
 
+{{--Notification--}}
+<script src="{{asset('template/limitless/global_assets/js/plugins/notifications/jgrowl.min.js')}}"></script>
+<script src="{{asset('template/limitless/global_assets/js/plugins/notifications/noty.min.js')}}"></script>
+<script src="{{asset('template/limitless/global_assets/js/demo_pages/extra_jgrowl_noty.js')}}"></script>
+{{--/Notification--}}

@@ -45,14 +45,14 @@ class UserLoginController extends UserCoreController
 
             //檢查郵箱是否激活
             if(Auth::user()->activated) {
-                return redirect()->route("user.dashboard.index")
-                    ->with('notification', ["type" => "success", "text"=>'歡迎回來!!']);
+                return redirect()->route("user.homepage")
+                    ->with('notification', ["type" => "warning", "timeout"=>false, "layout"=>"topCenter", "text"=>'歡迎回來 !!']);
             }else{
                 Auth::logout();
 
 
                 return redirect('/')
-                    ->with('notification', ["type" => "warning", "timeout"=>false, "layout"=>"topCenter", "text"=>'你的账号未激活，请检查邮箱中的注册邮件进行激活。']);;
+                    ->with('notification', ["type" => "warning", "timeout"=>false, "layout"=>"topCenter", "text"=>'你的账号未激活，请检查邮箱中的注册邮件进行激活。']);
             }
         }
 

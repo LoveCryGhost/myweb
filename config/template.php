@@ -3,10 +3,10 @@
 return [
 
     "languages" => [
-        'cn' => "China",
-        'tw' => "Taiwan",
+        'zh_CN' => "China",
+        'zh_TW' => "Taiwan",
         'en' => "English",
-        'vn' => "Vietnam",
+        'vi' => "Vietnam",
         'id' => "Indonesia"
     ]
 

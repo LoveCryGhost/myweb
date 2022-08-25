@@ -22,11 +22,38 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
-            }
-        }
+            switch ($guard) {
 
-        return $next($request);
+                case "admin":
+                    if (Auth::guard($guard)->check()) {
+
+                        return redirect()->route('admin.dashboard.index');
+                    }
+                    break;
+
+                case "member":
+                    if (Auth::guard($guard)->check()) {
+                        return redirect()->route('member.dashboard.index');
+                    }
+                    break;
+
+                case "staff":
+                    if (Auth::guard($guard)->check()) {
+
+                        return redirect()->route('staff.dashboard.index');
+                    }
+                    break;
+
+                default:
+                    if (Auth::guard($guard)->check()) {
+                        //return redirect('/');
+                        return redirect()->route('user.dashboard.index');
+                    }
+
+                    break;
+            }
+
+            return $next($request);
+        }
     }
 }
