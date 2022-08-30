@@ -16,6 +16,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+
+        $this->testCorn($schedule);
+
     }
 
     /**
@@ -28,5 +31,9 @@ class Kernel extends ConsoleKernel
         $this->load(__DIR__.'/Commands');
 
         require base_path('routes/console.php');
+    }
+
+    protected function testCorn($schedule){
+        $schedule->command('command:TestCorn')->everyMinute()->withoutOverlapping();
     }
 }
